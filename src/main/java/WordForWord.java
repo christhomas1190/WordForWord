@@ -1,5 +1,7 @@
 package src.main.java;
 
+import java.util.HashMap;
+
 /**
  * Four phases of text processing to do. Write a method for each one.
  *
@@ -22,6 +24,8 @@ package src.main.java;
 
 public class WordForWord {
 
+
+
     // You'll need to setup some instance variables for the phases of processing
     // you need to do on the text in the file(s).
     // And where SHOULD those POJO classes go? Inner classes? Separate public classes?
@@ -31,22 +35,37 @@ public class WordForWord {
     public static void main(String[] args) {
 
         WordForWord wfw = new WordForWord();
-
         wfw.loadFile("testdata1.txt");
-
         wfw.processAll();
+        System.out.println(wfw);
 
-        System.out.println(wfw.toString());
+        HashMap<String , Integer> map = new HashMap<>();
+
+        String words=wfw.loadFile().split(" ");
+
+        for( word: words){
+            words.toLowerCase();
+            if(map.containsKey(word)){
+                map.put(word, map.get(word+1))
+            }else(map.put(word+1)){
+                System.out.println(map);
+            }
+
+        }
+
+
     }
 
     public String toString() {
-       return ""; // create a brief report on what you found out about the file contents.
+       return "File content: "+ fileContent; // create a brief report on what you found out about the file contents.
     }
 
     private void processAll() {
     }
 
     private void loadFile(String file) {
+        StringBuilder content = new StringBuilder();
+
     }
 
 }
