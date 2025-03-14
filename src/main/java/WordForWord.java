@@ -1,6 +1,9 @@
 package src.main.java;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * Four phases of text processing to do. Write a method for each one.
@@ -32,22 +35,23 @@ public class WordForWord {
     // The decision depends on how you envision using the methods in this class.
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        WordForWord wfw = new WordForWord();
-        wfw.loadFile("testdata1.txt");
-        wfw.processAll();
-        System.out.println(wfw);
-
+//        WordForWord wfw = new WordForWord();
+//        wfw.loadFile("testdata1.txt");
+//        wfw.processAll();
+//        System.out.println(wfw);
+//        Scanner words = new Scanner(new FileInputStream("testdata1.txt"));
+//        String words=wfw.loadFile().split(" ");
+        String str = "Alice is girl and Bob is boy";
         HashMap<String , Integer> map = new HashMap<>();
+        String[] words = str.split(" ");
 
-        String words=wfw.loadFile().split(" ");
 
-        for( word: words){
-            words.toLowerCase();
+        for(String word: words){
             if(map.containsKey(word)){
-                map.put(word, map.get(word+1))
-            }else(map.put(word+1)){
+                map.put(word, map.get(word+1));
+            }else{map.put(word,1);
                 System.out.println(map);
             }
 
@@ -56,9 +60,9 @@ public class WordForWord {
 
     }
 
-    public String toString() {
-       return "File content: "+ fileContent; // create a brief report on what you found out about the file contents.
-    }
+//    public String toString() {
+//       return "File content: "+ fileContent; // create a brief report on what you found out about the file contents.
+//    }
 
     private void processAll() {
     }
